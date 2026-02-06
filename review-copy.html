@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Copy - The Veil: Covenant - Meredith Taylor</title>
+    <style>
+        :root {
+            --color-cream: #f5f5f5;
+            --color-dark: #1a1a1a;
+            --color-gold: #c9a961;
+            --color-slate: #3a4a5c;
+            --color-accent: #8b7355;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--color-dark);
+            background-color: var(--color-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            padding: 20px 40px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-gold);
+        }
+
+        .hero-section {
+            min-height: 50vh;
+            background: linear-gradient(135deg, var(--color-slate) 0%, var(--color-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--color-gold);
+            font-weight: normal;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .review-copy-section {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 80px;
+        }
+
+        .book-showcase {
+            position: sticky;
+            top: 120px;
+        }
+
+        .book-cover-large {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .book-info h2 {
+            font-size: 2.5rem;
+            color: var(--color-slate);
+            margin-bottom: 1.5rem;
+        }
+
+        .book-info h3 {
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .book-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--color-dark);
+        }
+
+        .blurb-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .blurb-box p {
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .review-benefits {
+            background: linear-gradient(135deg, var(--color-slate) 0%, var(--color-dark) 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .review-benefits h3 {
+            font-size: 2rem;
+            color: var(--color-gold);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-gold);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .download-section {
+            background: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .download-section h3 {
+            font-size: 2.2rem;
+            color: var(--color-slate);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--color-dark);
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--color-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+        }
+
+        .download-button:hover {
+            background: var(--color-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(201, 169, 97, 0.4);
+        }
+
+        .review-guidelines {
+            margin-top: 3rem;
+            padding: 40px;
+            background: var(--color-cream);
+            border-radius: 8px;
+        }
+
+        .review-guidelines h4 {
+            font-size: 1.5rem;
+            color: var(--color-slate);
+            margin-bottom: 1rem;
+        }
+
+        .review-guidelines p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .review-guidelines ul {
+            margin-left: 30px;
+            margin-bottom: 1rem;
+        }
+
+        .review-guidelines li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--color-slate) 0%, var(--color-dark) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: var(--color-gold);
+            text-decoration: none;
+            transition: border-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .footer a:hover {
+            border-bottom-color: var(--color-gold);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .review-copy-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .book-showcase {
+                position: static;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .download-section {
+                padding: 30px 20px;
+            }
+
+            .review-benefits {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About The Series</a></li>
+            <li><a href="index.html#order">Order Your Copy</a></li>
+            <li><a href="index.html#characters">Characters</a></li>
+            <li><a href="index.html#mailing">Mailing List</a></li>
+            <li><a href="index.html#author">About The Author</a></li>
+            <li><a href="review-copy.html" style="color: var(--color-gold);">Review Copy</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Request a Review Copy</h1>
+            <p>Experience the epic urban fantasy adventure that readers are calling "breathtaking" and "impossible to put down"</p>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <div class="review-copy-section">
+            <div class="book-showcase">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOukArLQuopW2xqh2S-MOC6GroY-7oKqaBFffDUztQCH5FGAPv4S_yfSViV_Gth2S9HzLo9nJ_PjhbtQGeRm5sb_2a53Ui2FVpO47aDYGrjeC-BZomhzncpvJ6iqsEj3EAIFeuEiO9O7vsvfkHfNTfhD5pX6nrEF-RIz-Jm4NtVH7W-YMykwVmfkfGuSE/s16000/veil_covenant_print_300ppi%20The%20Veil%20Meredith%20Taylor%20Kindle%20Covenant.png" alt="The Veil: Covenant Book Cover" class="book-cover-large">
+            </div>
+
+            <div class="book-info">
+                <h2>The Veil: Covenant</h2>
+                <h3>She was never meant to exist. Now she's the key to stopping an interdimensional war.</h3>
+                
+                <div class="blurb-box">
+                    <p>Onyx spent her life running from a past she cannot remember and nightmares she cannot escape. When a weekend birthday trip in the mountains ends with her falling off a cliff, she should die. Instead, she finds herself lifted in the arms of a stranger with wings.</p>
+                </div>
+
+                <p>The Veil series follows Onyx as she embarks on an epic urban fantasy adventure alongside Raphael, a Celestial warrior, and the mysterious Chthon named Lucian. A war is reignited in Los Angeles between winged guardians, horrifying creatures, and the Chthon who were trapped beyond the Veil.</p>
+
+                <div class="review-benefits">
+                    <h3>What Reviewers Are Saying</h3>
+                    <ul class="benefits-list">
+                        <li>Rich world-building that blends contemporary Los Angeles with supernatural mythology</li>
+                        <li>Complex characters navigating impossible choices between duty and desire</li>
+                        <li>Fast-paced action balanced with emotional depth</li>
+                        <li>Fresh take on angels, demons, and the spaces between</li>
+                        <li>Perfect for fans of urban fantasy and paranormal romance</li>
+                    </ul>
+                </div>
+
+                <div class="download-section">
+                    <h3>Download Your Review Copy</h3>
+                    <p>Get instant access to The Veil: Covenant in your preferred format. Perfect for book reviewers, bloggers, bookstagrammers, and BookTok creators.</p>
+                    
+                    <a href="#" class="download-button" onclick="alert('Please replace this link with your actual book file URL (PDF, EPUB, or MOBI)'); return false;">Download Now (EPUB/PDF)</a>
+
+                    <div class="review-guidelines">
+                        <h4>Review Guidelines</h4>
+                        <p>Thank you for your interest in reviewing The Veil: Covenant. We kindly ask that you:</p>
+                        <ul>
+                            <li>Post your honest review on Amazon, Goodreads, or your preferred platform</li>
+                            <li>Share your thoughts on social media and tag @MeredithTaylorBooks</li>
+                            <li>Include relevant hashtags: #TheVeilSeries #UrbanFantasy #ParanormalRomance</li>
+                            <li>Mention if you received a review copy in your post</li>
+                        </ul>
+                        <p>Questions? Contact us at <a href="mailto:contact@meredithtaylorbooks.com">contact@meredithtaylorbooks.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Meredith Taylor. All rights reserved.</p>
+        <p><a href="index.html">Return to Main Site</a> | <a href="index.html#mailing">Join Mailing List</a></p>
+    </footer>
+</body>
+</html>
