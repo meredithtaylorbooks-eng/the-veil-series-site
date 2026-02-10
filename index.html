@@ -482,7 +482,7 @@
             <li><a href="#characters">Characters</a></li>
             <li><a href="#mailing">Mailing List</a></li>
             <li><a href="#author">About The Author</a></li>
-            <li><a href="https://www.meredithtaylorbooks.com/review-copy.html">Review Copy</a></li>
+            <li><a href="https://meredithtaylorbooks.com/review-copy.html">Review Copy</a></li>
         </ul>
     </nav>
 
@@ -580,15 +580,22 @@
         </div>
     </section>
 
-    <script>
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+   <script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+
+            // Only smooth-scroll for in-page anchors
+            if (href && href.startsWith('#')) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+                const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            // If not starting with '#', do nothing: browser follows the link normally
         });
-    </script>
+    });
+</script>
 </body>
 </html>
