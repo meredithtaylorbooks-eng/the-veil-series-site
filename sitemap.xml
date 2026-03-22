@@ -9,12 +9,4 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Review copy page -->
-  <url>
-    <loc>https://meredithtaylorbooks.com/review-copy</loc>
-    <lastmod>2026-02-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
 </urlset>
