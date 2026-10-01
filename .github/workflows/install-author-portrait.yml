@@ -1,0 +1,54 @@
+name: Install supplied author portrait
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - redesign/celestials-cover-led
+    paths:
+      - .github/workflows/install-author-portrait.yml
+
+permissions:
+  contents: write
+
+jobs:
+  install-portrait:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out redesign branch
+        uses: actions/checkout@v4
+        with:
+          ref: redesign/celestials-cover-led
+
+      - name: Download the supplied full-size portrait
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            'https://n.uguu.se/fnVJVBCf.jpg' \
+            --output 'assets/Meredith-Taylor-Author-Celestials-Ridgemont-University-Covenant-Urban-Fantasy-Romantasy.jpg'
+          test "$(stat -c%s 'assets/Meredith-Taylor-Author-Celestials-Ridgemont-University-Covenant-Urban-Fantasy-Romantasy.jpg')" -eq 471419
+          file 'assets/Meredith-Taylor-Author-Celestials-Ridgemont-University-Covenant-Urban-Fantasy-Romantasy.jpg' | grep -q 'JPEG image data'
+
+      - name: Point the website to the supplied JPEG
+        shell: python
+        run: |
+          from pathlib import Path
+          page = Path('index.html')
+          html = page.read_text(encoding='utf-8')
+          old = './assets/meredith-taylor-author.svg'
+          new = './assets/Meredith-Taylor-Author-Celestials-Ridgemont-University-Covenant-Urban-Fantasy-Romantasy.jpg'
+          if old not in html and new not in html:
+              raise SystemExit('Author image reference was not found in index.html')
+          page.write_text(html.replace(old, new), encoding='utf-8')
+
+      - name: Commit the portrait and page update
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html assets/Meredith-Taylor-Author-Celestials-Ridgemont-University-Covenant-Urban-Fantasy-Romantasy.jpg
+          git diff --cached --quiet && exit 0
+          git commit -m 'Use supplied full-size author portrait'
+          git push origin HEAD:redesign/celestials-cover-led
