@@ -24,6 +24,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Exact portrait supplied and approved by the author on 2026-10-01.
           curl --fail --location --retry 3 \
             'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/2bf39845-4eea-4fb9-a232-ca4a8d570a87' \
             --output 'assets/Meredith-Taylor-Author-Celestials-Ridgemont-University-Covenant-Urban-Fantasy-Romantasy.jpg'
